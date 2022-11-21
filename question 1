@@ -1,0 +1,23 @@
+function getCafeDetails(c){
+const finalArray=[];
+const cafes_matching= cafes.filter(x=>   (x.name.search(c)!==-1  ) )
+for (let i=0; i<cafes_matching.length; i++){
+for (let j=0; j<places.length; j++){
+if (places[j].id===cafes_matching[i].place_id){
+const finalcafe= Object.assign({}, places[j]);
+delete finalcafe.id;
+finalcafe.name=cafes_matching[i].name;
+finalArray.push(finalcafe);
+break;
+}}
+}
+return finalArray;
+
+
+}
+
+console.table(getCafeDetails("Avenue"));
+
+
+
+
